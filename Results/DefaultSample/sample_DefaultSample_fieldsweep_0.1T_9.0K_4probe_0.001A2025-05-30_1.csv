@@ -1,0 +1,17 @@
+#Procedure: <__main__.BSweep4probeProcedure>
+#Parameters:
+#	Constant to convert from field to current: 13.2944 A/T
+#	Current Limit: 1 A
+#	Field Step: 0.01 T
+#	Heater setting: Low (PID: 50, 50, 0 ; Range: Low)
+#	Magnet Ramp Rate: 0.1 A/s
+#	Max Field: 0.1 T
+#	Min Field: -0.1 T
+#	Number of power line cycles aka. measurement accurac (0.1/1/10): 5
+#	Amperage of heater: 1.414 A
+#	Sample name: DefaultSample
+#	Set Current: 0.001 A
+#	Set temperature: 9 K
+#	Time per measurement: 0.1 s
+#Data:
+Resistance (ohm),Voltage (V),Magnetic Field (T)
