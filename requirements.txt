@@ -1,0 +1,11 @@
+dnspython==2.4.2
+numpy==1.26.4
+pycparser==2.21
+pymongo==4.5.0
+pytz==2024.1
+PyYAML==6.0.1
+six==1.16.0
+threadpoolctl==3.3.0
+typing_extensions==4.10.0
+tzdata==2024.1
+urllib3==2.2.1
