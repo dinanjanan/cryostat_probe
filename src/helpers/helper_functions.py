@@ -1,6 +1,8 @@
 import numpy as np
 from pymeasure.experiment.parameters import ListParameter
 
+from enums.sweep_type import SweepType
+
 def np_linear(min_value, max_value, step_value):
     # Calculate the number of points
     num_points = abs(int(np.round((max_value - min_value) / step_value))) + 1
@@ -27,15 +29,32 @@ def tabular_values(start_values, end_values, step_values):
     
     return np.array(values)                      
 
-def np_hysteresis(low, high, step):
-    """
-    Aids in creating numpy area for hysteresis values.
-    """
+def np_hysteresis(low, high, step, type = SweepType.B1):
+    result = {}
     up = np_linear(0, high, step)
     down = np_linear(high-step, low, -step)
     up2 = np_linear(low+step, high, step)
     down2 = np_linear(high-step, 0, -step)
-    return np.concatenate((up,down,up2, down2))
+    
+    if type == SweepType.B1:
+        up2 = np_linear(low+step, 0, step)
+        result = {
+            "fields": np.concatenate((up, down, up2)),
+            "passover": []
+        }
+    elif type == SweepType.B2:
+        result = {
+            "fields": np.concatenate((up, down, up2)),
+            "passover": [down2]
+        }
+    elif type == SweepType.B3:
+        result = {
+            "fields": np.concatenate((down, up2)),
+            "passover": [up, down2]
+        }
+
+    return result
+
 
 if __name__ == "__main__":
     end_fields = ListParameter("End fields", units="T", default=[0,2,-2],choices=None)

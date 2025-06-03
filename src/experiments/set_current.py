@@ -13,7 +13,7 @@ from pymeasure.display.Qt import QtWidgets
 from pint import UnitRegistry
 from pint.errors import UndefinedUnitError
 
-from common import CurrentSource
+from helpers.common import CurrentSource
 
 # Set up logging
 log = logging.getLogger("")

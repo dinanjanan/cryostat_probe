@@ -57,7 +57,7 @@ from pymeasure.display.windows import ManagedWindow
 from pymeasure.experiment import (
     Procedure, FloatParameter, unique_filename, Results
 )
-from helper_functions import np_hysteresis
+from helpers.helper_functions import np_hysteresis
 import logging
 log = logging.getLogger('')
 log.addHandler(logging.NullHandler())
